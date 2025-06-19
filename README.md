@@ -11,8 +11,6 @@ This app fetches breed data from [TheCatAPI](https://thecatapi.com/), lets users
 - Swipeable cards showing cat breed images and info
 - Like 😻 or Dislike 🙀 votes with fun icon buttons
 - Internationalization (i18n) support for English and Portuguese
-- Redux for global state management
-- TypeScript for type safety
 - Animated transitions for better UX
 
 ---
