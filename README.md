@@ -97,7 +97,7 @@ Each cat object includes:
 ├── components/
 │   ├── CatCard.tsx
 │   ├── SwipeDeck.tsx
-│   └── VoteButtons.tsx
+│   └── IconButton.tsx
 ├── redux/
 │   ├── hooks.ts
 │   ├── slices/
