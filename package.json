@@ -9,12 +9,6 @@
     "start": "react-native start",
     "test": "jest"
   },
-  "jest": {
-    "preset": "react-native",
-    "setupFilesAfterEnv": [
-      "@testing-library/jest-native/extend-expect"
-    ]
-  },
   "dependencies": {
     "@react-native/new-app-screen": "0.80.0",
     "@reduxjs/toolkit": "^2.8.2",
