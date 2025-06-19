@@ -1,13 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import api from "../../api/catApi";
-
-interface Cat {
-    id: string;
-    name: string;
-    image?: {
-        url: string;
-    };
-}
+import { Cat } from "types/commonTypes";
 
 interface CatListState { 
     cats: Cat[];
