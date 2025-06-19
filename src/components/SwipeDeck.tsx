@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Dimensions, Animated, PanResponder } from 'react-native';
+import { View, StyleSheet, Dimensions, Animated, PanResponder, Text } from 'react-native';
 import { useAppDispatch } from '../redux/hooks';
 import { sendVote } from '../redux/slices/votesSlice';
 import { Cat } from 'types/commonTypes';
+import VoteButtons from './VoteButtons';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;
@@ -63,6 +64,10 @@ const onSwipeComplete = (direction: 'left' | 'right') => {
       useNativeDriver: false,
     }).start();
   };
+  const handleVote = (catId: string, value: number) => {
+    dispatch(sendVote({image_id: catId, value}));
+    setIndex((prev)=> prev+1);
+  }
 const renderCard = () => {
     if (index >= data.length) return null;
 
@@ -73,7 +78,9 @@ const renderCard = () => {
         {...panResponder.panHandlers}
         style={[position.getLayout(), styles.card, { transform: [{ rotate }] }]}
       >
+        <Text style={styles.title}>{data[index].name}</Text>
         <Animated.Image source={{ uri: cat.image?.url }} style={styles.image} />
+        <VoteButtons onVote={(value) => handleVote(data[index].id, value)} />
       </Animated.View>
     );
   };
@@ -99,6 +106,10 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%',
+  },
+    title: {
+    fontSize: 20,
+    marginBottom: 10,
   },
 });
 
