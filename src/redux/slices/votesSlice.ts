@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import api from "api/catApi";
+import api from "../../api/catApi";
 
 interface Vote {
     image_id: string;

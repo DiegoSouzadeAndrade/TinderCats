@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import api from "api/catApi";
+import api from "../../api/catApi";
 
 interface Cat {
     id: string;
