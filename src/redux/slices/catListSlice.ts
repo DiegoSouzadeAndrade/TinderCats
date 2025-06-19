@@ -15,8 +15,24 @@ const initialState: CatListState = {
 }
 
 export const fetchCats = createAsyncThunk('catList/fetchCats', async () => {
-    const response = await api.get('/breeds');
-    return response.data;
+  const { data: breeds } = await api.get<Cat[]>('/breeds');
+
+  const catsWithImages: Cat[] = [];
+
+  for (const cat of breeds) {
+    if (cat.reference_image_id) {
+      try {
+        const { data: imageData } = await api.get(`/images/${cat.reference_image_id}`);
+        catsWithImages.push({ ...cat, image: { url: imageData.url } });
+      } catch {
+        catsWithImages.push({ ...cat, image: undefined });
+      }
+    } else {
+      catsWithImages.push({ ...cat, image: undefined });
+    }
+  }
+
+  return catsWithImages.filter((cat) => cat.image?.url);
 });
 
 const catListSlice = createSlice({
