@@ -76,6 +76,7 @@ Languages supported:
     Portuguese (pt)
 
 You can switch the language by changing the lng setting inside i18n/index.ts.
+
 🐱 API Reference
 
 The app uses https://api.thecatapi.com/v1/breeds to fetch cat breed data. No API key is required for basic usage.
