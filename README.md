@@ -1,97 +1,126 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 🐾 Tinder Cats
 
-# Getting Started
+**Tinder Cats** is a fun mobile application built with React Native that lets you swipe through cat breeds and vote on your favorites — similar to Tinder, but for cat lovers! 🐱💕
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+This app fetches breed data from [TheCatAPI](https://thecatapi.com/), lets users swipe cards, and vote with like/dislike buttons.
 
-## Step 1: Start Metro
+---
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 📱 Features
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- Swipeable cards showing cat breed images and info
+- Like 😻 or Dislike 🙀 votes with fun icon buttons
+- Internationalization (i18n) support for English and Portuguese
+- Animated transitions for better UX
 
-```sh
-# Using npm
+---
+
+## 🛠️ Tech Stack
+
+- **React Native**
+- **TypeScript**
+- **Redux Toolkit** for state management
+- **Jest** + **React Native Testing Library** for unit testing
+- **i18next** for translations
+- **Axios** for API calls
+- **TheCatAPI** as data source
+
+---
+
+## 📦 Installation
+
+1. **Clone the repo:**
+
+```bash
+git clone https://github.com/your-username/tinder-cats.git
+cd tinder-cats
+
+    Install dependencies:
+
+npm install
+
+or
+
+yarn
+
+    Start Metro bundler:
+
 npm start
 
-# OR using Yarn
-yarn start
-```
+    Run on Android:
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
 npm run android
 
-# OR using Yarn
-yarn android
-```
+or on iOS:
 
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
 npm run ios
 
-# OR using Yarn
-yarn ios
-```
+    Make sure you have an Android or iOS emulator set up, or a device connected.
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+🧪 Running Tests
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+npm test
 
-## Step 3: Modify your app
+Tests are written using:
 
-Now that you have successfully run the app, let's make changes!
+    jest
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+    @testing-library/react-native
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+🌍 Internationalization
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+Languages supported:
 
-## Congratulations! :tada:
+    English (en)
 
-You've successfully run and modified your React Native App. :partying_face:
+    Portuguese (pt)
 
-### Now what?
+You can switch the language by changing the lng setting inside i18n/index.ts.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+🐱 API Reference
 
-# Troubleshooting
+The app uses https://api.thecatapi.com/v1/breeds to fetch cat breed data. No API key is required for basic usage.
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+Each cat object includes:
 
-# Learn More
+{
+  "id": "abys",
+  "name": "Abyssinian",
+  "life_span": "14 - 15",
+  "image": {
+    "url": "https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg"
+  }
+}
 
-To learn more about React Native, take a look at the following resources:
+📂 Folder Structure
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+├── components/
+│   ├── CatCard.tsx
+│   ├── SwipeDeck.tsx
+│   └── IconButton.tsx
+├── redux/
+│   ├── hooks.ts
+│   ├── slices/
+│   │   ├── catListSlice.ts
+│   │   └── votesSlice.ts
+│   └── store.ts
+├── screens/
+│   └── HomeScreen.tsx
+├── i18n/
+│   └── index.ts
+├── App.tsx
+└── ...
+
+🧾 Versioning
+
+    React Native: 0.80.0
+
+    React: 19.1.0
+
+    TypeScript: 5.0.4
+
+    Redux Toolkit: 2.8.2
+
+    Jest: 29.7.0
+
+See package.json for the full list of dependencies.
