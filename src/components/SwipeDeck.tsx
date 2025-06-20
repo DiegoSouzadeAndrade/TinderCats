@@ -52,10 +52,10 @@ const SwipeDeck: React.FC<Props> = ({data}) => {
     const onSwipeComplete = (direction: 'left' | 'right') => {
         const cat = data[index];
 
-        if (direction === 'right') {
+        if (direction === 'left') {
         handleVote(cat.id, 1)
         }
-        if (direction === 'left') {
+        if (direction === 'right') {
         handleVote(cat.id, 0)
         }
         position.setValue({ x: 0, y: 0 });
