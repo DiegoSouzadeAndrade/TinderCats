@@ -53,11 +53,12 @@ const SwipeDeck: React.FC<Props> = ({data}) => {
         const cat = data[index];
 
         if (direction === 'right') {
-        dispatch(sendVote({ image_id: cat.id, value: 1 }));
+        handleVote(cat.id, 1)
         }
-
+        if (direction === 'left') {
+        handleVote(cat.id, 0)
+        }
         position.setValue({ x: 0, y: 0 });
-        setIndex(prev => prev + 1);
     };
 
     const resetPosition = () => {
@@ -66,9 +67,10 @@ const SwipeDeck: React.FC<Props> = ({data}) => {
         useNativeDriver: false,
         }).start();
     };
+
     const handleVote = (catId: string, value: number) => {
         dispatch(sendVote({image_id: catId, value}));
-        setIndex((prev)=> prev+1);
+        setIndex((prev) => prev + 1);
     }
     
     const renderCard = () => {
