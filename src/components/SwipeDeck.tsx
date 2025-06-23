@@ -92,7 +92,7 @@ const SwipeDeck: React.FC<Props> = ({data}) => {
             <View style={styles.infoWrapper}>
                 <CatInfoCard 
                     name={currentCat.name}
-                    lifeSpan={currentCat.life_span}
+                    affectionLevel={currentCat.affection_level}
                     origin={currentCat.origin}
                 />
             </View>
@@ -104,8 +104,8 @@ const SwipeDeck: React.FC<Props> = ({data}) => {
     <View style={styles.container}>
         {renderCard()}
         <View style={{...styles.center, flexDirection: 'row', marginTop: 75, justifyContent: 'space-evenly'}}>
-            <IconButton onPress={() => handleVote(data[index].id, 0)} name='close' size={32} color='red' />
-            <IconButton onPress={() => handleVote(data[index].id, 1)} name='heart' size={32} color='green'/>
+            <IconButton onPress={() => handleVote(data[index].id, 0)} name='close' size={32} color='#E16359' />
+            <IconButton onPress={() => handleVote(data[index].id, 1)} name='heart' size={32} color='#6BD88E'/>
         </View>
     </View>);
 
@@ -132,10 +132,9 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   infoWrapper: {
+    position: 'absolute',
+    bottom: 0,
     width: '100%',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingBottom: 16,
   },
     center: {
     justifyContent: 'center',
