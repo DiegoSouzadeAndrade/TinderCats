@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 type Props = {
     onPress: (value?: number) => void;
@@ -9,29 +9,31 @@ type Props = {
     color: string
 };
 
-const VoteButtons: React.FC<Props> = ({ onPress, name, size, color }) => {
+const IconButton: React.FC<Props> = ({ onPress, name, size, color}) => {
 
   return (
-      <TouchableOpacity style={styles.buttonContainer} onPress={() => onPress()}>
-          <Icon style={styles.icon} name={name} size={size} color={color}/>
+      <TouchableOpacity style={styles.button} onPress={() => onPress()}>
+          <Icon style={styles.iconContainer} name={name} size={size} color={color}/>
       </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  buttonContainer: {
-    alignItems: 'center',
+  button: {
+    borderRadius: 50,
     width: 65,
     height: 65,
-    overflow: 'hidden',
-    borderRadius: 50,
-    borderWidth: 5,
-    backgroundColor: 'white',    
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
     elevation: 5,
+    borderWidth: 1,
+    borderColor: 'white',
   },
-  icon:{
-    marginBottom: -5,
+  iconContainer:{
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
-export default VoteButtons;
+export default IconButton;

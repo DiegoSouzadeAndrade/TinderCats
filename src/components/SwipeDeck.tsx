@@ -5,6 +5,7 @@ import { sendVote } from '../redux/slices/votesSlice';
 import { Cat } from 'types/commonTypes';
 import IconButton from './IconButton';
 import CatInfoCard from './CatInfoCard';
+import { FA5Style } from 'react-native-vector-icons/FontAwesome5';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;
@@ -102,9 +103,9 @@ const SwipeDeck: React.FC<Props> = ({data}) => {
   return (
     <View style={styles.container}>
         {renderCard()}
-        <View style={{...styles.center, flexDirection: 'row', marginTop: 25, justifyContent: 'space-evenly'}}>
-            <IconButton onPress={() => handleVote(data[index].id, 1)} name='heart' size={64} color='green' />
-            <IconButton onPress={() => handleVote(data[index].id, 0)} name='times' size={64} color='red' />
+        <View style={{...styles.center, flexDirection: 'row', marginTop: 75, justifyContent: 'space-evenly'}}>
+            <IconButton onPress={() => handleVote(data[index].id, 0)} name='close' size={32} color='red' />
+            <IconButton onPress={() => handleVote(data[index].id, 1)} name='heart' size={32} color='green'/>
         </View>
     </View>);
 
