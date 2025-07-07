@@ -5,7 +5,6 @@ import { sendVote } from '../redux/slices/votesSlice';
 import { Cat } from 'types/commonTypes';
 import IconButton from './IconButton';
 import CatInfoCard from './CatInfoCard';
-import { FA5Style } from 'react-native-vector-icons/FontAwesome5';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;
@@ -107,6 +106,11 @@ const SwipeDeck: React.FC<Props> = ({data}) => {
             <IconButton onPress={() => handleVote(data[index].id, 0)} name='close' size={32} color='#E16359' />
             <IconButton onPress={() => handleVote(data[index].id, 1)} name='heart' size={32} color='#6BD88E'/>
         </View>
+        <View style={{...styles.custonButton, flexDirection: 'row', marginTop: 75, justifyContent: 'center'}}>
+            <IconButton onPress={() => console.log('press')} name='paw' size={32} color='#E16359' backgroundColor='transparent' elevation={0}/>
+            <IconButton onPress={() => console.log('press')} name='chat' size={32} color='#6BD88E' backgroundColor='transparent' elevation={0}/>
+            <IconButton onPress={() => console.log('press')} name='account' size={32} color='#6BD88E' backgroundColor='transparent' elevation={0}/>
+        </View>
     </View>);
 
 };
@@ -139,6 +143,16 @@ const styles = StyleSheet.create({
     center: {
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  custonButton: {
+    borderRadius: 50,
+    height: 65,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 5,
+    borderWidth: 1,
+    borderColor: 'white',
   },
 });
 

@@ -1,19 +1,22 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/AntDesign';
+import { View, StyleSheet, TouchableOpacity, StyleProp, ViewStyle } from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 
 type Props = {
     onPress: (value?: number) => void;
     name: string;
     size: number;
-    color: string
+    color: string;
+    backgroundColor?: string;
+    elevation?: number;
 };
 
-const IconButton: React.FC<Props> = ({ onPress, name, size, color}) => {
+const IconButton: React.FC<Props> = ({ onPress, name, size, color, backgroundColor, elevation}) => {
 
   return (
-      <TouchableOpacity style={styles.button} onPress={() => onPress()}>
-          <Icon style={styles.iconContainer} name={name} size={size} color={color}/>
+      <TouchableOpacity style={backgroundColor ? {...styles.button, backgroundColor, elevation} : styles.button} onPress={() => onPress()}>
+          <MaterialCommunityIcons style={styles.iconContainer} name={name} size={size} color={color}/>
       </TouchableOpacity>
   );
 };
